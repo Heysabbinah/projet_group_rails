@@ -25,12 +25,23 @@
        <td><%= group.name %></td>
        <td><%= group.salle %></td>
        <td><%= group.tache %></td>
-
-       
        <td><%= link_to 'Show', group %></td>
        <td><%= link_to 'Edit', edit_group_path(group) %></td>
        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
+      <% group.people.each do |person| %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= person.name%></td> <!-- ici on a mit person.name pr qu'il affiche dans les colonnes les personnes id des groupes respectifs -->
+        <td></td>
+        <td></td>
+        <td></td>
+
+        
+      </tr>
+      <%end%>
    <% end %>
  </tbody>
 </table>
