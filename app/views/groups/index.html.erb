@@ -29,7 +29,7 @@
        <td><%= link_to 'Edit', edit_group_path(group) %></td>
        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
-      <% group.people.each do |person| %>
+      <% group.people.each do |person| %> <!--ici la boucle aprés la boucle du groupe pour afficher les personnes des groupes respectifs -->
       <tr>
         <td></td>
         <td></td>
@@ -73,8 +73,8 @@
     <% @people.each do |person| %>
       <tr>
         <td><%= person.name %></td>
-        <!-- <td><%= person.email %></td>
-        <td><%= person.tel %></td> -->
+        <td><%= person.email %></td>
+        <td><%= person.tel %></td> 
         <td><%= person.group_id %></td>
         <td><%= person.sensei %></td>
         <td><%= link_to 'Show', person %></td>
