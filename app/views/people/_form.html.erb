@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -25,11 +26,11 @@
   </div>
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.text_field :group_id %>
+    <%= f.number_field :group_id %> <!--ici j'ai mis number pr avoir le dropdown -->
   </div>
   <div class="field">
     <%= f.label :sensei %><br>
-    <%= f.check_box :sensei %>
+    <%= f.check_box :sensei %> <!-- ici check box car boolean pr le sensei true ou false si coche -->
   </div>
   <div class="actions">
     <%= f.submit %>

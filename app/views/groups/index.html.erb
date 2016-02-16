@@ -1,28 +1,73 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
+
+<div class="row">
+
 <h1>Listing Groups</h1>
 
-<table class="table"> <!-- ici class table pour mettre en forme boostrap-->
+
+<table class="table table-hover">
+ <thead>
+   <tr>
+     <th>Name</th>
+     <th>Salle</th>
+     <th>Tache</th>
+     <th>Membres</th>
+     <th colspan="3"></th>
+   </tr>
+ </thead>
+
+
+ <tbody>
+   <% @groups.each do |group| %>
+     <tr>
+       <td><%= group.name %></td>
+       <td><%= group.salle %></td>
+       <td><%= group.tache %></td>
+
+       
+       <td><%= link_to 'Show', group %></td>
+       <td><%= link_to 'Edit', edit_group_path(group) %></td>
+       <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_group_path %>
+</div>
+
+<!-- //////////////////////   ici la liste PEOPLE //////////////////////////////////// -->
+
+<div class="container">
+
+<h1>Listing People</h1>
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Salle</th>
-      <th>Tache</th>
+      <th>Email</th>
+      <th>Tel</th>
+      <th>Group</th>
+      <th>Sensei</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @groups.each do |group| %>
-
+    <% @people.each do |person| %>
       <tr>
-        <td><%= group.name %></td>
-        <td><%= group.salle %></td>
-        <td><%= group.tache %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= person.name %></td>
+        <!-- <td><%= person.email %></td>
+        <td><%= person.tel %></td> -->
+        <td><%= person.group_id %></td>
+        <td><%= person.sensei %></td>
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +75,11 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'New Person', new_person_path %>
 </div>
+
+
+
+
+
+

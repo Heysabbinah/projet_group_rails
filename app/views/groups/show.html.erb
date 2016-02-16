@@ -15,15 +15,13 @@
   <%= @group.tache %>
 </p>
 
-<strong>Members:</strong>
-
-<% @people.each do |person| %>
-   <% if @group.id == person.group_id%>
 <p>
- <%= person.name %>
-</p>
-
-<% end %>
+<strong>Members:</strong>
+<p>
+<% @group.people.each do |person| %>
+<%= person.sensei? ? "- sensei" : "" %>
+<p>
+<%= person.name %>
    <% end %>
   </p>
 
