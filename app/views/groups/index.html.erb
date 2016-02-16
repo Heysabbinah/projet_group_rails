@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <h1>Listing Groups</h1>
 
-<table>
+<table class="table"> <!-- ici class table pour mettre en forme boostrap-->
   <thead>
     <tr>
       <th>Name</th>
@@ -14,6 +15,7 @@
 
   <tbody>
     <% @groups.each do |group| %>
+
       <tr>
         <td><%= group.name %></td>
         <td><%= group.salle %></td>
@@ -29,3 +31,4 @@
 <br>
 
 <%= link_to 'New Group', new_group_path %>
+</div>

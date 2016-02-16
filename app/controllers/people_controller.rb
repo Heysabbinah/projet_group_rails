@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @people = Person.all
   end
 
   # GET /people/new
@@ -19,6 +20,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    
   end
 
   # POST /people

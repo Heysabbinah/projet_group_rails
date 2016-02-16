@@ -15,5 +15,17 @@
   <%= @group.tache %>
 </p>
 
+<strong>Members:</strong>
+
+<% @people.each do |person| %>
+   <% if @group.id == person.group_id%>
+<p>
+ <%= person.name %>
+</p>
+
+<% end %>
+   <% end %>
+  </p>
+
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
