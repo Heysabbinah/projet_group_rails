@@ -1,94 +1,84 @@
 <p id="notice"><%= notice %></p>
+<h1>Random Group Manager</h1>
+<h2>Listing Groups</h2>
+<div class="container-fluid">
+   <div class="row">
 
-<div class="container">
 
-<div class="row">
+<table class="table table-hover col-md-4">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Salle</th>
+    <th>Tache</th>
+    <th>Membres</th>
+    <th>Senseï</th>
+    <th>Actions</th>
+    <th colspan="2"></th>
+  </tr>
+</thead>
 
-<h1>Listing Groups</h1>
+<tbody>
+  <% @groups.each do |group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td><%= group.salle %></td>
+    <td><%= group.tache %></td>
+    <td></td>
+    <td></td>
+    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% group.people.each do |person| %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><%= person.name %>
+    <td><%= best_in_place person, :sensei, :as => :select, :collection => {"1" => "Sensei", "2" => "Scarabée"} %></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+   </div>
+</div>
 
- <table class="table table-hover">
+<%= link_to 'New Group', new_group_path %>
+<%= link_to 'Random', dunno_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing People</h1>
+
+<table class="table table-hover">
  <thead>
    <tr>
      <th>Name</th>
-     <th>Salle</th>
-     <th>Tache</th>
-     <th>Membres</th>
+     <th>Email</th>
+     <th>Group</th>
+     <th>Actions</th>
      <th colspan="3"></th>
    </tr>
  </thead>
 
  <tbody>
-   <% @groups.each do |group| %>
-   <tr>
-     <td><%= group.name %></td>
-     <td><%= group.salle %></td>
-     <td><%= group.tache %></td>
-     <td></td>
-     <td><%= link_to 'Show', group %></td>
-     <td><%= link_to 'Edit', edit_group_path(group) %></td>
-     <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-   </tr>
-   <% group.people.each do |person| %>
-   <tr>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td><%= person.name %>
-     <%= person.sensei? ? " - Sensei" : "" %></td>
-     <td></td>
-     <td></td>
-     <td></td>
-   </tr>
-     <% end %>
-     <% end %>
-   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>
-</div>
-
-<!-- //////////////////////   ici la liste PEOPLE //////////////////////////////////// -->
-
-<div class="container">
-
-<h1>Listing People</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-     <!--  <th>Email</th>
-      <th>Tel</th> -->
-      <th>Group</th>
-      <th>Sensei</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.name %></td>
-        <!-- <td><%= person.email %></td>
-        <td><%= person.tel %></td>  -->
-        <td><%= person.group_id %></td>
-        <td><%= person.sensei %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-      </tr>
-    <% end %>
-  </tbody>
+   <% @people.each do |person| %>
+     <tr>
+       <td><%= best_in_place person, :name %></td>
+       <td><%= person.email %></td>
+       <td><%= best_in_place person, :group_id , :as => :select, :collection => {"1" => "1", "2" => "2", "3" => "3"}%></td>
+       <td><%= link_to 'Show', person %></td>
+       <td><%= link_to 'Edit', edit_person_path(person) %></td>
+       <!-- <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+     </tr>
+   <% end %>
+ </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Person', new_person_path %>
-</div>
-
-
-
-
-
-
