@@ -43,10 +43,10 @@ group :development, :test do
    gem 'spring'
   gem 'better_errors'
   gem 'pry'
-  gem 'tipsy-rails'
+
 end
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
-gem 'bootstrap'
+
 gem 'best_in_place', '~> 3.0.1'
