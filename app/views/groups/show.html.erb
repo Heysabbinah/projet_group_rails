@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+
+<h1>Listing <%= @group.name %></h1>
 <p>
   <strong>Name:</strong>
   <%= @group.name %>
@@ -25,5 +28,6 @@
    <% end %>
   </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Edit', edit_group_path(@group), :class => "btnedition" %> |
+<%= link_to 'Back', groups_path, :class => "btnback" %>
+</div>

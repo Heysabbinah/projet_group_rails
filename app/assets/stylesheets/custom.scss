@@ -1,8 +1,6 @@
-body {
-	background-color: black;
-}
+
 .table {
-	background-color: #c7c9c8;
+	background-color: white;
 }
 h1 {
 	color: #08fbb9;
@@ -14,4 +12,40 @@ th {
 }
 p {
 	color: #c7c9c8;
+}
+.grfirst {
+	background-color: white;
+}
+.grfirst li {
+	display: inline;
+}
+.listmember {
+	display: inline-block;
+}
+.btnshow {
+	width: 4%;
+	padding: 4%;
+	background-color: black;
+
+	color: #08fbb9;
+}
+.btnedit {
+	width: 4%;
+	padding: 6%;
+	background-color: black;
+
+	color: #08fbb9;
+}
+.btnedition {
+	width: 4%;
+	padding: 1%;
+	background-color: white;
+
+	color: #08fbb9;
+}
+.btnback {
+	width: 4%;
+	padding: 1%;
+	background-color: white;
+	color: #08fbb9;
 }
