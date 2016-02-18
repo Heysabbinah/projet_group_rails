@@ -25,9 +25,10 @@
     <%= f.text_field :tel %>
   </div>
   <div class="field">
-    <%= f.label :group_id %><br>
-    <%= f.number_field :group_id %> <!--ici j'ai mis number pr avoir le dropdown -->
-  </div>
+   <%= f.label :group_id %><br>
+   <%= f.select :group_id, options_for_select(Group.all.to_a.map {|x| [ x.name, x.id]}) %>
+ </div>
+  
   <div class="field">
     <%= f.label :sensei %><br>
     <%= f.check_box :sensei %> <!-- ici check box car boolean pr le sensei true ou false si coche -->

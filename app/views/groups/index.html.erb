@@ -32,7 +32,7 @@
      <td></td>
      <td><%= person.name %>
      <%= person.sensei? ? " - Sensei" : "" %></td>
-     <td></td>
+     <td><%= best_in_place person, :group_id , :as => :select, :collection => {"nil" => "Sans groupe"}%></td>
      <td></td>
      <td></td>
    </tr>
@@ -71,17 +71,20 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <% if person.group_id == nil %>
+    
+        <% if person.group_id == "nil" || person.group_id == 0 %>
         <td><%= best_in_place person, :name %></td> <!-- ici la synthaxe de best in place pr le name -->
+        
         <td><%= person.email %></td>
         <td><%= person.tel %></td>
         <td><%= person.group_id %></td>
-        <td><%= best_in_place person, :sensei, :as => :select, :collection => {"1" => "Sensei", "2" => "visiteur"} %> <!-- ici la synthaxe pr choisir le sensei -->
+        <td><%= best_in_place person, :sensei, :as => :select, :collection => {"1" => "Sensei", "2" => "visiteur"} %><%= person.sensei? ? " - Sensei" : "" %></td>
+        <!-- ici la synthaxe pr choisir le sensei -->
 
         <td><%= link_to 'Show', person, :class => "btnshow" %></td>
         <td><%= link_to '+', edit_person_path(person), :class => "btnedit" %></td>
       </tr>
-         <%end%> <!-- ici le end pr la boucle qui affiche les user dans les groupe et les efface de la liste-->
+        <%end%><!-- ici le end pr la boucle qui affiche les user dans les groupe et les efface de la liste-->
 
     <% end %>
   </tbody>
@@ -91,8 +94,7 @@
 
 </div>
 </div>
-<%= link_to 'New Person', new_group_path%>
-</div>
+<%= link_to 'New Person', new_person_path%>
 </div>
 
 
